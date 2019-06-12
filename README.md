@@ -1,10 +1,6 @@
-# dw_ladder
+# 说明
 
-简单方便的proxy浏览墙外信息工具。
+1. 基于SwitchyOmega开源项目二次开发的极简chrome翻墙插件。
+2. 可以通过离线文件（.crx）安装，下载地址：[Releases page](https://github.com/digitwonder/dw_ladder/releases/tag/0.0.1)
 
-### Chrome Extension
-
-本项目基于SwitchyOmega开源项目二次开发的chrome extension应用。
-可以通过离线文件（.crx）进行chrome 扩展用应用安装。下载地址：[Releases page](https://github.com/digitwonder/dw_ladder/releases/tag/0.0.1)
-
-
+## 安装说明
