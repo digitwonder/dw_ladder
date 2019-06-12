@@ -1,0 +1,43 @@
+{
+   "name": "DW_Ladder",
+   "version": "1.0.1",
+   "manifest_version": 2,
+   "description": "DW代理插件使用PAC情景模式进行代理",
+   "icons": {
+      "128": "img/icons/dw-logo-128.png",
+      "16": "img/icons/dw-logo-16.png",
+      "24": "img/icons/dw-logo-24.png",
+      "32": "img/icons/dw-logo-32.png",
+      "48": "img/icons/dw-logo-48.png",
+      "64": "img/icons/dw-logo-64.png"
+   },
+   "default_locale": "en",
+   "browser_action": {
+      "browser_style": false,
+      "default_icon": {
+         "16": "img/icons/dw-logo-16.png",
+         "19": "img/icons/dw-logo-19.png",
+         "24": "img/icons/dw-logo-24.png",
+         "32": "img/icons/dw-logo-32.png"
+      },
+      "default_popup": "options.html",
+      "default_title": "DW-Ladder"
+   },
+   "background": {
+      "page": "background.html"
+   },
+   "minimum_chrome_version": "22.0.0",
+   "options_page": "options.html",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options.html"
+   },
+   "permissions": [ "proxy", "tabs", "alarms", "storage", "webRequest", "webRequestBlocking", "contextMenus", "activeTab", "activeTab", "\u003Call_urls>" ],
+   "commands": {
+      "_execute_browser_action": {
+         "suggested_key": {
+            "default": "Alt+Shift+O"
+         }
+      }
+   }
+}

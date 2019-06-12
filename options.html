@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="MasterCtrl" ng-csp>
+	<head>
+		<meta charset="utf-8">
+		<title ng-bind="'options_title' | tr"></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/spectrum/spectrum.css">
+		<link rel="stylesheet" href="lib/ladda/ladda-themeless.min.css">
+		<link rel="stylesheet" href="lib/shepherd.js/shepherd-theme-arrows.css">
+		<link rel="stylesheet" href="css/options.css">
+	</head>
+	<body id="body">
+
+		<div id="Line-1" class="row">
+			<div id="DW_Ladder" class="col-xs-8">DW_Ladder</div>
+			<div id="help" class="col-xs-4"><a  target="_blank" href="https://github.com/SZQJ/ladder">帮助</a></div>
+		</div>
+
+		<div id="Line-2" class="row">
+			<div id="own-switch" class="col-xs-8">
+				<div class="testswitch" style="display: inline-block">
+					<input class="testswitch-checkbox" id="onoffswitch" type="checkbox">
+					<label class="testswitch-label" for="onoffswitch">
+						<span id="testswitch-inner" class="testswitch-inner" data-on="启用" data-off="停用"></span>
+						<span id="testswitch-switch" class="testswitch-switch"></span>
+					</label>
+				</div>
+			</div>
+			<div id="setting" class="col-xs-4" ng-click="modify()"><span>配置</span></div>
+		</div>
+
+		<div id="main">
+			<div>
+				<div id="pac-head">PAC脚本地址</div>
+				<div id="pac-input">
+					<input input-group
+					       type="text"
+					       ng-model="model"
+					       placeholder="请输入PAC脚本地址"
+					       ng-keydown="enterUpdate(event)"/>
+				</div>
+				<div id="pac-button" class="row">
+					<div id="pac-button-div1" class="col-xs-6">
+						<button id="pac-button-button"
+						        ng-click="updateProfile(profile.name)"
+						        class="btn"> 更新
+						</button>
+					</div>
+					<div id="pac-button-div2" class="col-xs-6">
+						<span id="update-message"></span>
+						<img id="loadingSpinner" src="https://img.icons8.com/color/48/000000/spinner-frame-7.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="lib/jquery/jquery.min.js"></script>
+		<script src="lib/script.js/script.min.js"></script>
+		<script src="js/loader.js"></script>
+		<script src="js/options.js"></script>
+		<script src="js/switch.js"></script>
+	</body>
+</html>

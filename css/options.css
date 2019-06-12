@@ -1,0 +1,248 @@
+#body {
+    padding: 0.8rem;
+    min-width: 12rem;
+}
+
+#Line-1 {
+    display: flex;
+    margin: 0 0 0.5rem 0;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#DW_Ladder {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#help {
+    text-align: center;
+    color: #49c5b6;
+    text-decoration: underline;
+    height: 100%;
+    display: flex;
+    justify-content: center
+}
+
+#Line-2 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+}
+
+#setting {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #49c5b6;
+    cursor: pointer;
+}
+
+#setting span:hover {
+    display: block;
+    color: #FFF;
+    width: 3rem;
+    background-color: #49c5b6;
+}
+
+#main {
+    display: none;
+    background-color: rgb(248, 249, 250);
+    margin-top: -1px;
+    padding: 0;
+    border: 1px solid rgb(248, 249, 250);
+}
+
+#pac-head {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+#pac-input input {
+    border-radius: 0.2rem;
+    height: 2rem;
+    line-height: 2rem;
+    width: 100%;
+    border: 1px solid #999;
+    padding: 0 0.2rem;
+}
+
+#pac-input input::-webkit-input-placeholder {
+    font-size: 0.8rem;
+}
+
+#pac-input input:focus {
+    outline: none;
+}
+
+#pac-button {
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+#pac-button button {
+    background-color: #49c5b6;
+    width: 3.2rem;
+    height: 1.8rem;
+    font-size: 1rem;
+    padding: 0.2rem 0;
+    color: #FFF;
+    border-radius: 1rem;
+    border: 1px solid #EEEEEE;
+}
+
+#pac-button button:focus {
+    outline: none;
+}
+
+#pac-button button:hover {
+    background-color: #FFF;
+    color: #49c5b6;
+    border: 1px solid #49c5b6;
+}
+
+#pac-button-div2 {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+#loadingSpinner {
+    display: none;
+    height: 1.5rem;
+    animation: myRotate 2s linear infinite;
+    margin-left: 2.5rem;
+}
+
+@keyframes myRotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.col-xs-4 {
+    padding: 0;
+}
+
+.col-xs-6 {
+    padding: 0;
+}
+
+.col-xs-8 {
+    padding: 0;
+}
+
+.testswitch {
+    position: relative;
+    float: left;
+    width: 5rem;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.testswitch-checkbox {
+    display: none;
+}
+
+.testswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 0;
+    border: 1px solid #DDD;
+    border-radius: 1.5rem;
+}
+
+.testswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0s ease-in 0s;
+}
+
+.testswitch-inner::before, .testswitch-inner::after {
+    display: block;
+    float: right;
+    width: 50%;
+    height: 1.5rem;
+    padding: 0;
+    line-height: 1.5rem;
+    font-size: 0.2rem;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.testswitch-inner::after {
+    content: attr(data-on);
+    padding-left: 0.3rem;
+    background-color: #49c5b6;
+    color: #FFFFFF;
+}
+
+.testswitch-inner::before {
+    content: attr(data-off);
+    padding-right: 0.3rem;
+    background-color: rgb(248, 249, 250);
+    color: #AAA;
+    text-align: right;
+}
+
+.testswitch-switch {
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 1.6rem;
+    background: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    right: 2.5rem;
+    border: 1px solid #DDD;
+    border-radius: 1.5rem;
+    transition: all 0s ease-in 0s;
+}
+
+.testswitch-checkbox:checked + .testswitch-label .testswitch-inner {
+    margin-left: 0;
+}
+
+.testswitch-checkbox:checked + .testswitch-label .testswitch-switch {
+    right: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #49c5b6;
+}
+
+a:link {
+    color: #49c5b6;
+    text-decoration: none;
+}
+
+a:active {
+    color: #49c5b6;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #49c5b6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFF;
+    width: 3rem;
+    background-color: #49c5b6;
+}
