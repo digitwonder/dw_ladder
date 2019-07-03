@@ -29,6 +29,5 @@
 ![自定义PAC地址](https://github.com/digitwonder/dw_ladder/blob/master/img/Tutorial/step4.gif)
 
 # 关于
-1. 获取可用测试PAC地址，请支持该项目并私信作者
-2. 启用插件后，如有网站不能正常访问，请提交Issue
-3. 该插件进攻个人技术研究使用，禁止用于商业用途
+1. 启用插件后，如有网站不能正常访问，请提交Issue
+2. 该插件进攻个人技术研究使用，禁止用于商业用途
