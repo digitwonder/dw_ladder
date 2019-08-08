@@ -96,12 +96,26 @@
     var __hasProp = {}.hasOwnProperty;
     angular.module('omega').controller('MasterCtrl', function ($scope, $rootScope, $window, $q, $modal, $state, profileColors, profileIcons, omegaTarget, $timeout, $location, $filter, getAttachedName, isProfileNameReserved, isProfileNameHidden, dispNameFilter, downloadFile) {
         var checkFormValid, diff, onOptionChange, showFirstRun, showFirstRunOnce, tr, type, _ref, _ref1, _ref2;
+        var defaultPac;
         if (((typeof browser !== "undefined" && browser !== null ? (_ref = browser.proxy) != null ? _ref.register : void 0 : void 0) != null) || ((typeof browser !== "undefined" && browser !== null ? (_ref1 = browser.proxy) != null ? _ref1.registerProxyScript : void 0 : void 0) != null)) {
             $scope.isExperimental = true;
             $scope.pacProfilesUnsupported = true;
         }
         tr = $filter('tr');
         $rootScope.options = null;
+
+        $scope.model = '';
+        $.getJSON("default_pac.json",function(data){
+            defaultPac=data.defaultPac;
+        });
+        setTimeout(()=>{
+            if($rootScope.options['+启用']){
+                $scope.model = $rootScope.options['+启用'].pacUrl;
+            }else{
+                $scope = defaultPac;
+            }
+        },100);
+        //添加选项更改回调--return inputValue
         omegaTarget.addOptionsChangeCallback(function (newOptions) {
             $rootScope.options = angular.copy(newOptions);
             $rootScope.optionsOld = angular.copy(newOptions);
@@ -113,9 +127,13 @@
                 return showFirstRun();
             });
         });
+
+        //还原选项function
         $rootScope.revertOptions = function () {
             return $window.location.reload();
         };
+
+        //导出脚本function
         $rootScope.exportScript = function (name) {
             var getProfileName;
             getProfileName = name ? $q.when(name) : omegaTarget.state('currentProfileName');
@@ -164,6 +182,8 @@
                 minLength: 1 / 0
             }
         });
+
+        //展示弹窗function
         $rootScope.showAlert = function (alert) {
             return $timeout(function () {
                 $scope.alert = alert;
@@ -172,6 +192,8 @@
                 $timeout($rootScope.hideAlert, 3000);
             });
         };
+
+        //隐藏弹窗
         $rootScope.hideAlert = function () {
             return $timeout(function () {
                 if (Date.now() - $scope.alertShownAt >= 1000) {
@@ -179,6 +201,8 @@
                 }
             });
         };
+
+        //检查表的可用性 function
         checkFormValid = function () {
             var fields;
             fields = angular.element('.ng-invalid');
@@ -209,6 +233,8 @@
                 });
             });
         };
+
+        //重置选项 function
         $rootScope.resetOptions = function (options) {
             return omegaTarget.resetOptions(options).then(function () {
                 return $rootScope.showAlert({
@@ -249,7 +275,12 @@
         $rootScope.enterUpdate=function(e){
             let ev = e||window.event;
             if(ev.keyCode==13){
-                $rootScope.updateProfile("启用");
+                // $rootScope.updateProfile("启用");
+                // $rootScope.updateProfile(undefined) //依旧不对--尝试写一个模拟点击事件
+                $('#pac-button-button').focus();
+                $('#pac-button-button').click()
+
+
             }
         }
         $rootScope.modify = function () {
@@ -263,10 +294,6 @@
                 document.getElementById("own-switch").style.cssText = "padding-bottom:0.5rem";
             }
         };
-        var defaultPac;
-        $.getJSON("default_pac.json",function(data){
-            defaultPac=data.defaultPac;
-        });
         $rootScope.newProfile = function () {
             var scope;
             scope = $rootScope.$new('isolate');
@@ -304,6 +331,7 @@
         };
         $scope.updatingProfile = {};
         $rootScope.updateProfile = function (name) {
+            console.log(name)
             var regex = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
             if (regex.test($scope.model)) {
                 document.getElementById("update-message").style.display = "none";
@@ -360,7 +388,7 @@
                             });
                         }
                     })["finally"](function () {
-                        $scope.model = "";
+                        //$scope.model = "";
                         $rootScope.profileByName("启用").pacUrl = $scope.model;
                         if (name != null) {
                             return $scope.updatingProfile[name] = false;
